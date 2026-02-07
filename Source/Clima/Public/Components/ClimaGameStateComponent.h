@@ -50,15 +50,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "World", meta = (ToolTip = "in cm/s")) 
 	float SeaLevelSpeedOfSound = 34300;
 	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "World", meta = (ToolTip = "Used for Density Curve atmosphere model")) 
-	UCurveFloat* AirDensityCurve;
+	        UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "World", meta = (ToolTip = "Used for Density Curve atmosphere model"))
+	        TObjectPtr<UCurveFloat> AirDensityCurve;
 	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "World") 
-	bool SpeedOfSoundVariesWithAltitude = false;
+	        UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "World")
+	        bool SpeedOfSoundVariesWithAltitude = false;
 	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "World") 
-	UCurveFloat* SpeedOfSoundCurve;
-
+	        UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "World")
+	        TObjectPtr<UCurveFloat> SpeedOfSoundCurve;
 	// UPROPERTY to allow editing in the Editor
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Atmosphere")
 	TArray<FAtmosphereDataPoint> AirDensityCurvePoint;
@@ -66,10 +65,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Atmosphere")
 	TArray<FAtmosphereDataPoint> SpeedOfSoundCurvePoint;
 
-	// A curve table or data asset is best for data-driven design
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Atmosphere")
-	class UCurveFloat* MachDragCurve;
-
+	        // A curve table or data asset is best for data-driven design
+	        UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Atmosphere")
+	        TObjectPtr<class UCurveFloat> MachDragCurve;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, SaveGame, Category = "World", meta = (ToolTip = "Atmosphere pressure at 0,0,0 - in millibars")) 
 	float SeaLevelAirPressure = 1012.5f; // Pa
 

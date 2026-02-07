@@ -17,9 +17,8 @@ class AClimaMicroClimateActor : public AActor
 public:
 	AClimaMicroClimateActor();
 
-	UPROPERTY(VisibleAnywhere)
-	UProceduralMeshComponent* MicroclimateMesh = nullptr;
-
+	        UPROPERTY(VisibleAnywhere)
+	        TObjectPtr<UProceduralMeshComponent> MicroclimateMesh;
 	// Called by the GameState's OnRep function
 	void UpdateMeshFromData(const FCompressedMicroclimateData& Data);
 
@@ -33,12 +32,11 @@ protected:
 public:    
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh")
-	UProceduralMeshComponent* ProceduralMesh;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh")
-	UMaterialInterface* BaseMaterial;
-
+	        UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh")
+	        TObjectPtr<UProceduralMeshComponent> ProceduralMesh;
+	
+	        UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Mesh")
+	        TObjectPtr<UMaterialInterface> BaseMaterial;
 private:
 	void GenerateAndMutateMesh();
 	void UpdateMesh();
